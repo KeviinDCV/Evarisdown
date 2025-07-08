@@ -2,8 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import VideoDownloader from '../components/downloader/VideoDownloader';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { cn } from "../lib/utils";
 import logoSvg from '../logo.svg';
 
 const Home: React.FC = () => {
@@ -65,56 +63,7 @@ const Home: React.FC = () => {
       >
         <VideoDownloader />
       </motion.div>
-      
-      {/* Sección de características */}
-      <div className="mt-16">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.7 }}
-        >
-          <h2 className="text-3xl font-bold text-center mb-8">
-            ¿Por qué elegir EvariDown?
-          </h2>
-        </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              title: 'Rápido y Fácil',
-              description: 'Descarga videos y música con solo pegar la URL. No necesitas registrarte.'
-            },
-            {
-              title: 'Alta Calidad',
-              description: 'Descarga videos en alta definición (HD, Full HD, 4K) y audio en alta calidad.'
-            },
-            {
-              title: 'Múltiples Plataformas',
-              description: 'Compatible con YouTube, Instagram, TikTok, Twitter, Facebook y más.'
-            }
-          ].map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.3 + (index * 0.2), duration: 0.5 }}
-            >
-              <Card className={cn(
-                "h-full transition-all hover:shadow-lg hover:-translate-y-1",
-              )}>
-                <CardHeader>
-                  <CardTitle>{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+
     </div>
   );
 };
