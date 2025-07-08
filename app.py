@@ -336,12 +336,13 @@ def download_video():
         else:
             # Configuración para video basada en la resolución seleccionada
             print(f"Descargando video con la opción: {option_id}...")
-            
+            print(f"Datos recibidos - optionId: {option_id}, quality: {data.get('quality')}, format: {data.get('format')}")
+
             # Determinar formato de video según la opción seleccionada
             if option_id == 'opt-best':
-                print(">>> Seleccionada máxima calidad (4K/2K)")
-                # Máxima calidad disponible
-                format_spec = 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+                print(">>> Seleccionada máxima calidad (4K/8K/máxima disponible)")
+                # Máxima calidad disponible sin restricciones de altura
+                format_spec = 'bestvideo[ext=mp4]/bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best'
             elif option_id == 'opt-1080':
                 print(">>> Seleccionada calidad Full HD (1080p)")
                 # Full HD 1080p
@@ -355,10 +356,12 @@ def download_video():
                 # SD 480p
                 format_spec = 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]/best'
             else:
-                # Opción por defecto (720p)
-                print(">>> Usando calidad predeterminada HD (720p)")
-                format_spec = 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best'
-            
+                # Opción por defecto (1080p)
+                print(">>> Usando calidad predeterminada Full HD (1080p)")
+                format_spec = 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best'
+
+            print(f">>> Formato final seleccionado: {format_spec}")
+
             ydl_opts = {
                 'format': format_spec,
                 'merge_output_format': 'mp4',

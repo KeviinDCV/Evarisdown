@@ -89,16 +89,16 @@ const VideoDownloader: React.FC<VideoDownloaderProps> = ({ onDownloadComplete })
         // Mapear la calidad seleccionada al optionId correcto
         switch(quality) {
           case 'highest':
-            optionId = 'opt-best';  // 4K/máxima calidad
+            optionId = 'opt-best';  // 4K/8K/máxima calidad disponible
             break;
           case 'medium':
-            optionId = 'opt-720';   // HD (720p)
+            optionId = 'opt-1080';  // Full HD (1080p)
             break;
           case 'low':
-            optionId = 'opt-480';   // SD (480p)
+            optionId = 'opt-720';   // HD (720p)
             break;
           default:
-            optionId = 'opt-720';   // Por defecto usar HD
+            optionId = 'opt-1080';  // Por defecto usar Full HD
         }
       }
       
