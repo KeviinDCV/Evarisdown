@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { cn } from '../../lib/utils';
-import { motion } from 'framer-motion';
 import { ThemeToggle } from '../ui/theme-toggle';
 
 const Navbar: React.FC = () => {
@@ -13,20 +12,14 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
-          <RouterLink to="/" className="flex items-center space-x-3">
-            <motion.div
-              whileHover={{
-                scale: [1, 1.05, 1],
-                transition: { duration: 0.3 }
-              }}
-              className="flex items-center"
-            >
+          <RouterLink to="/" className="flex items-center space-x-2">
+            <div className="flex items-center">
               <img
-                src="/Images/LOGO-HUV-COMPUESTO.png"
-                alt="Hospital Universitario del Valle"
-                className="h-14 w-auto"
+                src="/Images/logo.png"
+                alt="EvariDown Logo"
+                className="h-12 w-12 object-contain"
               />
-            </motion.div>
+            </div>
             <span className="font-bold text-xl">EvariDown</span>
           </RouterLink>
           <nav className="hidden gap-6 md:flex">
@@ -42,13 +35,6 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
-            <Button
-              variant="ghost"
-              className="text-base hover:bg-transparent hover:text-primary"
-              asChild
-            >
-              <RouterLink to="/">Inicio</RouterLink>
-            </Button>
             <ThemeToggle />
           </nav>
         </div>
@@ -94,13 +80,6 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="container md:hidden">
           <div className="flex flex-col space-y-3 pb-3 pt-2">
-            <RouterLink
-              to="/"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsOpen(false)}
-            >
-              Inicio
-            </RouterLink>
             <RouterLink
               to="/history"
               className="text-sm font-medium transition-colors hover:text-primary"

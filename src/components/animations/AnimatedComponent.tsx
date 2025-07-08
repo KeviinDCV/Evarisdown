@@ -1,6 +1,6 @@
 // @ts-nocheck
-import React, { ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import React, { ReactNode, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 
 type AnimationType = 'fadeIn' | 'slideIn' | 'scaleIn' | 'none';
 
@@ -12,44 +12,59 @@ interface AnimatedComponentProps {
   className?: string;
 }
 
-// Definiciones de variantes de animación
-const animations = {
-  fadeIn: {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  },
-  slideIn: {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
-  },
-  scaleIn: {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1 }
-  },
-  none: {
-    hidden: { opacity: 1 },
-    visible: { opacity: 1 }
-  }
-};
-
 const AnimatedComponent: React.FC<AnimatedComponentProps> = ({
   children,
   type = 'fadeIn',
   delay = 0,
-  duration = 0.5,
+  duration = 0.6,
   className = ''
 }) => {
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = elementRef.current;
+    if (!element) return;
+
+    // Configuraciones iniciales y finales para cada tipo de animación
+    const animations = {
+      fadeIn: {
+        from: { opacity: 0, y: 20 },
+        to: { opacity: 1, y: 0 }
+      },
+      slideIn: {
+        from: { opacity: 0, x: -20 },
+        to: { opacity: 1, x: 0 }
+      },
+      scaleIn: {
+        from: { opacity: 0, scale: 0.95 },
+        to: { opacity: 1, scale: 1 }
+      },
+      none: {
+        from: { opacity: 1 },
+        to: { opacity: 1 }
+      }
+    };
+
+    const config = animations[type];
+
+    // Establecer estado inicial
+    gsap.set(element, config.from);
+
+    // Animar al estado final
+    gsap.to(element, {
+      ...config.to,
+      duration,
+      delay,
+      ease: "power2.out"
+    });
+
+  }, [type, delay, duration]);
+
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={animations[type]}
-      transition={{ duration, delay, ease: 'easeOut' }}
-      className={className}
-    >
+    <div ref={elementRef} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 };
 
-export default AnimatedComponent; 
+export default AnimatedComponent;

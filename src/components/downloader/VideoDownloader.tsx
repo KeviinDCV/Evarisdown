@@ -183,8 +183,8 @@ const VideoDownloader: React.FC<VideoDownloaderProps> = ({ onDownloadComplete })
     >
       <CardHeader
         title="Descargar Video o Audio"
-        titleTypographyProps={{ 
-          variant: 'h5', 
+        titleTypographyProps={{
+          variant: 'h5',
           fontWeight: 'bold',
           sx: { color: isDarkMode ? 'rgb(240, 240, 240)' : 'inherit' }
         }}
