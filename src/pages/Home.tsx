@@ -28,13 +28,13 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-4 space-y-6 px-4">
+    <div className="container mx-auto py-2 sm:py-4 space-y-4 sm:space-y-6 px-2 sm:px-4">
       {/* Letrero institucional compacto */}
-      <div className="mb-6 flex justify-center md:justify-end">
-        <div className="max-w-lg w-full md:w-auto bg-white rounded-lg p-4 shadow-sm border border-gray-300">
+      <div className="mb-4 sm:mb-6 flex justify-center md:justify-end">
+        <div className="max-w-sm sm:max-w-lg w-full md:w-auto bg-white rounded-lg p-3 sm:p-4 shadow-sm border border-gray-300">
           <div className="space-y-1">
-            <h2 className="text-xl font-bold text-gray-900">EvariDown</h2>
-            <p className="text-sm font-medium text-gray-700">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900">EvariDown</h2>
+            <p className="text-xs sm:text-sm font-medium text-gray-700">
               Hospital Universitario del Valle "Evaristo García" E.S.E
             </p>
             <p className="text-xs text-gray-600 leading-relaxed">
@@ -48,16 +48,16 @@ const Home: React.FC = () => {
       </div>
 
       {/* Componente principal de descarga */}
-      <div ref={downloaderRef} className="max-w-3xl mx-auto">
+      <div ref={downloaderRef} className="max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto">
         <VideoDownloader />
       </div>
 
       {/* Logo institucional centrado */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-2 sm:mt-4">
         <img
           src="/Images/LOGO-HUV-COMPUESTO.png"
           alt="Hospital Universitario del Valle"
-          className="h-48 w-auto object-contain"
+          className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto object-contain"
           style={{
             mixBlendMode: 'multiply',
             filter: 'contrast(1.1) brightness(1.1)'

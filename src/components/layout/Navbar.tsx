@@ -10,17 +10,17 @@ const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <div className="flex gap-6 md:gap-10">
-          <RouterLink to="/" className="flex items-center space-x-2">
+      <div className="container flex h-14 sm:h-16 items-center space-x-2 sm:space-x-4 sm:justify-between sm:space-x-0 px-2 sm:px-4">
+        <div className="flex gap-2 sm:gap-6 md:gap-10">
+          <RouterLink to="/" className="flex items-center space-x-1 sm:space-x-2">
             <div className="flex items-center">
               <img
                 src="/Images/logo.png"
                 alt="EvariDown Logo"
-                className="h-12 w-12 object-contain"
+                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
               />
             </div>
-            <span className="font-bold text-xl">EvariDown</span>
+            <span className="font-bold text-lg sm:text-xl">EvariDown</span>
           </RouterLink>
           <nav className="hidden gap-6 md:flex">
             <RouterLink

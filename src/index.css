@@ -208,8 +208,37 @@ a, button {
 
 /* Efectos de transición de temas */
 .theme-transition {
-  transition: background-color 0.3s ease-in-out, 
+  transition: background-color 0.3s ease-in-out,
               color 0.3s ease-in-out,
               border-color 0.3s ease-in-out,
               box-shadow 0.3s ease-in-out;
-} 
+}
+
+/* Utilidades responsivas para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Reducir tamaños de fuente en pantallas muy pequeñas */
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.125rem; }
+
+  /* Reducir espaciado en elementos */
+  .space-y-6 > * + * { margin-top: 1rem; }
+  .space-y-4 > * + * { margin-top: 0.75rem; }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Tamaños aún más pequeños para pantallas muy estrechas */
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.125rem; }
+  h3 { font-size: 1rem; }
+}
