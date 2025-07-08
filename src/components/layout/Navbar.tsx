@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
               <img
                 src="/Images/LOGO-HUV-COMPUESTO.png"
                 alt="Hospital Universitario del Valle"
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
             </motion.div>
             <span className="font-bold text-xl">EvariDown</span>
