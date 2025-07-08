@@ -15,14 +15,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <footer className="py-6 border-t bg-background">
-        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex flex-col items-center gap-2 md:items-start">
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} EvariDown. Todos los derechos reservados.
-            </p>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            Hecho con ❤️ por el equipo de Innovación y Desarrollo
+        <div className="container flex flex-col items-center justify-center gap-2">
+          <p className="text-sm text-muted-foreground text-center">
+            Hospital Universitario del Valle "Evaristo García" E.S.E
+          </p>
+          <p className="text-sm text-muted-foreground text-center">
+            Innovación y desarrollo.
           </p>
         </div>
       </footer>
