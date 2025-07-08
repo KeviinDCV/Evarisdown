@@ -13,41 +13,23 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
-          <RouterLink to="/" className="flex items-center space-x-2">
+          <RouterLink to="/" className="flex items-center space-x-3">
             <motion.div
-              whileHover={{ 
-                rotate: [0, -10, 10, -10, 0],
-                transition: { duration: 0.5 }
+              whileHover={{
+                scale: [1, 1.05, 1],
+                transition: { duration: 0.3 }
               }}
-              className="text-primary"
+              className="flex items-center"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
+              <img
+                src="/Images/LOGO-HUV-COMPUESTO.png"
+                alt="Hospital Universitario del Valle"
+                className="h-10 w-auto"
+              />
             </motion.div>
             <span className="font-bold text-xl">EvariDown</span>
           </RouterLink>
           <nav className="hidden gap-6 md:flex">
-            <RouterLink
-              to="/about"
-              className={cn(
-                "flex items-center text-lg font-medium transition-colors hover:text-primary",
-              )}
-            >
-              Acerca de
-            </RouterLink>
             <RouterLink
               to="/history"
               className={cn(
@@ -118,13 +100,6 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               Inicio
-            </RouterLink>
-            <RouterLink
-              to="/about"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsOpen(false)}
-            >
-              Acerca de
             </RouterLink>
             <RouterLink
               to="/history"
