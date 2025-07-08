@@ -1,38 +1,154 @@
-# Aplicativo de Descarga de Videos Institucionales
+# 🎬 Evarisdown - YouTube Downloader
 
-## Descripción Técnica
+Una aplicación web moderna y elegante para descargar videos de YouTube con una interfaz intuitiva construida con React y Shadcn/UI.
 
-Este aplicativo está diseñado para facilitar la descarga segura y eficiente de contenido audiovisual desde diversas plataformas web (como YouTube, TikTok, Instagram, etc.). Su propósito principal es permitir a los usuarios autorizados dentro de la institución obtener copias locales de videos relevantes para fines institucionales, con un enfoque particular en **material relacionado con procesos médicos, educativos y de investigación**.
+![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.6.3-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-blue?logo=tailwindcss)
+![Python](https://img.shields.io/badge/Python-3.8+-green?logo=python)
+![Flask](https://img.shields.io/badge/Flask-Backend-green?logo=flask)
 
-### Funcionalidades Clave:
+## ✨ Características
 
-*   **Descarga desde Múltiples Fuentes:** Soporte para una amplia gama de plataformas de video populares.
-*   **Selección de Formato y Calidad:** Permite al usuario elegir el formato de salida (MP4 para video, MP3 para audio) y la calidad deseada (alta, media, baja) para optimizar el tamaño del archivo y la compatibilidad.
-*   **Obtención de Metadatos:** Extrae información relevante del video como título, miniatura y plataforma de origen antes de iniciar la descarga.
-*   **Interfaz Intuitiva:** Un diseño claro y fácil de usar basado en Material UI para una experiencia de usuario fluida.
-*   **Notificaciones en Tiempo Real:** Informa al usuario sobre el estado del proceso de descarga (inicio, éxito, error) mediante notificaciones.
-*   **Manejo de Errores:** Implementa mecanismos para gestionar errores comunes durante la obtención de información o la descarga, proporcionando mensajes claros al usuario.
+- 🎥 **Descarga de videos de YouTube** en diferentes calidades (720p, 1080p, etc.)
+- 🎨 **Interfaz moderna** con React 18 y Shadcn/UI
+- 🌙 **Tema claro/oscuro** con transiciones suaves
+- 👀 **Previsualización de videos** antes de descargar
+- 📊 **Historial de descargas** con persistencia local
+- ⚡ **Backend rápido** en Python con Flask y yt-dlp
+- 📱 **Diseño responsivo** para todos los dispositivos
+- 🎭 **Animaciones fluidas** con Framer Motion
 
-### Arquitectura (Visión General):
+## 🛠️ Stack Tecnológico
 
-*   **Frontend:** Desarrollado con React y Next.js, utilizando TypeScript para un tipado estático y Material UI (MUI) para los componentes de la interfaz de usuario. Emplea hooks personalizados (`useVideoInfo`, `useSnackbar`) para gestionar el estado y las notificaciones.
-*   **Backend:** (Se asume una API REST) Responsable de procesar las solicitudes de descarga, interactuar con las APIs de las plataformas de video (o usar librerías como `yt-dlp`), gestionar la conversión de formatos si es necesario y servir los archivos descargados. La comunicación entre frontend y backend se realiza mediante peticiones HTTP (Axios).
-*   **Configuración:** Utiliza un archivo de configuración (`apiConfig.js` o similar) para gestionar la URL base de la API.
+### Frontend
+- **React 18** - Biblioteca de UI
+- **TypeScript** - Tipado estático
+- **Tailwind CSS 3.4.17** - Framework de CSS
+- **Shadcn/UI** - Componentes de UI modernos
+- **Framer Motion** - Animaciones
+- **React Router** - Navegación
+- **Lucide React** - Iconos
+- **Axios** - Cliente HTTP
 
-### Flujo de Descarga:
+### Backend
+- **Python 3.8+** - Lenguaje de programación
+- **Flask** - Framework web
+- **yt-dlp** - Descargador de videos
+- **CORS** - Manejo de CORS
 
-1.  El usuario ingresa la URL del video en el campo correspondiente.
-2.  El frontend realiza una solicitud al backend (o utiliza un hook) para obtener la información del video (metadatos, formatos disponibles).
-3.  La información (título, miniatura) se muestra al usuario.
-4.  El usuario selecciona el formato (MP4/MP3) y la calidad (si aplica).
-5.  Al pulsar "Descargar", el frontend envía una solicitud al endpoint `/api/download` del backend, incluyendo la URL, la información del video y las opciones seleccionadas (`optionId`).
-6.  El backend procesa la solicitud, inicia la descarga desde la fuente original utilizando la `optionId` adecuada.
-7.  Una vez descargado y procesado (si es necesario), el backend genera un ID de descarga y una URL temporal (`/api/download-direct/{downloadId}`).
-8.  El frontend recibe la URL de descarga directa y simula un clic en un enlace (`<a>`) para iniciar la descarga en el navegador del usuario.
-9.  Se muestran notificaciones para informar al usuario sobre el progreso y el resultado.
+## 🚀 Instalación y Configuración
 
-## Uso Institucional Exclusivo
+### Prerrequisitos
+- Node.js (v16 o superior)
+- Python (v3.8 o superior)
+- npm, yarn o pnpm
 
-**Importante:** Este aplicativo ha sido desarrollado y está destinado **exclusivamente para uso interno e institucional**. Su función principal es la recuperación de material audiovisual relacionado con **procesos médicos, formación interna, documentación de casos y otros fines estrictamente profesionales y autorizados** dentro de la organización.
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/KeviinDCV/Evarisdown.git
+cd Evarisdown
+```
 
-**Queda prohibido el uso de esta herramienta para descargar material protegido por derechos de autor con fines ajenos a los institucionales o para su redistribución no autorizada.** Se espera que todos los usuarios cumplan con las políticas internas y las leyes de propiedad intelectual vigentes. 
+### 2. Configurar el Frontend
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar el servidor de desarrollo
+npm start
+```
+
+### 3. Configurar el Backend
+```bash
+# Navegar al directorio del backend
+cd backend
+
+# Instalar dependencias de Python
+pip install -r requirements.txt
+
+# Iniciar el servidor Flask
+python app.py
+```
+
+### 4. Acceder a la aplicación
+- Frontend: `http://localhost:3000`
+- Backend API: `http://localhost:5000`
+
+## 📁 Estructura del Proyecto
+
+```
+Evarisdown/
+├── 📁 src/
+│   ├── 📁 components/
+│   │   ├── 📁 ui/           # Componentes Shadcn/UI
+│   │   ├── 📁 layout/       # Layout y navegación
+│   │   ├── 📁 downloader/   # Lógica de descarga
+│   │   └── 📁 animations/   # Componentes animados
+│   ├── 📁 pages/            # Páginas principales
+│   ├── 📁 hooks/            # Custom React hooks
+│   ├── 📁 lib/              # Utilidades y helpers
+│   ├── 📁 context/          # Context providers
+│   └── 📁 config/           # Configuraciones
+├── 📁 backend/              # Servidor Python Flask
+├── 📁 public/               # Archivos estáticos
+└── 📁 downloads/            # Videos descargados
+```
+
+## 🎯 Uso
+
+1. **Iniciar ambos servidores** (frontend y backend)
+2. **Abrir** `http://localhost:3000` en tu navegador
+3. **Pegar la URL** del video de YouTube
+4. **Seleccionar la calidad** deseada
+5. **Hacer clic en "Descargar"**
+6. **Esperar** a que se complete la descarga
+
+## 🎨 Componentes UI
+
+El proyecto utiliza **Shadcn/UI** con los siguientes componentes:
+- `Button` - Botones con variantes
+- `Card` - Tarjetas de contenido
+- `Dialog` - Modales y diálogos
+- `Input` - Campos de entrada
+- `Dropdown Menu` - Menús desplegables
+- `Separator` - Separadores visuales
+
+## 🌙 Temas
+
+La aplicación soporta temas claro y oscuro con:
+- Variables CSS personalizadas
+- Transiciones suaves entre temas
+- Persistencia de preferencias
+- Detección automática del tema del sistema
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Para contribuir:
+
+1. **Fork** el proyecto
+2. **Crear** una rama para tu feature
+   ```bash
+   git checkout -b feature/nueva-caracteristica
+   ```
+3. **Commit** tus cambios
+   ```bash
+   git commit -m 'Agregar nueva característica'
+   ```
+4. **Push** a la rama
+   ```bash
+   git push origin feature/nueva-caracteristica
+   ```
+5. **Abrir** un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la **Licencia MIT**. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👨‍💻 Autor
+
+**Kevin Echavarro** - [@KeviinDCV](https://github.com/KeviinDCV)
+
+---
+
+⭐ ¡No olvides dar una estrella al proyecto si te gustó!
