@@ -31,7 +31,7 @@ const Home: React.FC = () => {
     <div className="container mx-auto py-4 space-y-6 px-4">
       {/* Letrero institucional compacto */}
       <div className="mb-6 flex justify-center md:justify-end">
-        <div className="max-w-lg w-full md:w-auto bg-white rounded-lg p-5 shadow-xl border border-gray-200">
+        <div className="max-w-lg w-full md:w-auto bg-white rounded-lg p-4 shadow-sm border border-gray-300">
           <div className="space-y-1">
             <h2 className="text-xl font-bold text-gray-900">EvariDown</h2>
             <p className="text-sm font-medium text-gray-700">
