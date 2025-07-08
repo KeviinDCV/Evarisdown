@@ -14,12 +14,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-1 flex flex-col">
         {children}
       </main>
-      <footer className="py-6 border-t bg-background">
-        <div className="container flex flex-col items-center justify-center gap-2">
+      <footer className="py-3 border-t bg-background">
+        <div className="container flex flex-col items-center justify-center gap-1">
           <p className="text-sm text-muted-foreground text-center">
             Hospital Universitario del Valle "Evaristo García" E.S.E
           </p>
-          <p className="text-sm text-muted-foreground text-center">
+          <p className="text-xs text-muted-foreground text-center">
             Innovación y desarrollo.
           </p>
         </div>
